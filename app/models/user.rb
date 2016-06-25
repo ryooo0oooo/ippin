@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 has_attached_file :icon,
-                      styles:  { medium: "300x300#", thumb: "100x100#" }
+      styles:  { medium: "300x300#", thumb: "100x100#" }
   validates_attachment_content_type :icon,
-                                      content_type: ["image/jpg","image/jpeg","image/png"]
+      content_type: ["image/jpg","image/jpeg","image/png"]
+
+ validates :account_id, presence: true
 end
