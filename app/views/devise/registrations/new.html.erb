@@ -8,18 +8,37 @@
     <%= f.email_field :email, autofocus: true, :placeholder => 'ippin@gamil.com' %>
   </div>
 
+ <div class="field">
+    <%= f.label :account_id %><br />
+    <%= f.text_field :account_id, autocomplete: "off"  , :placeholder =>'アカウントID'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autocomplete: "off"  , :placeholder =>'ユーザーネーム'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction %><br />
+    <%= f.text_field :introduction, autocomplete: "off"  , :placeholder =>'自己紹介'%>
+  </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" , :placeholder =>'パスワードを入力'%>
+    <%= f.password_field :password, autocomplete: "off" , :placeholder =>'パスワード'%>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off"  , :placeholder =>'パスワードを入力(確認)'%>
+    <%= f.password_field :password_confirmation, autocomplete: "off"  , :placeholder =>'パスワード(確認)'%>
   </div>
+
+<div class="field">
+    <%= f.file_field :icon %>
+</div>
 
 
   <div class="actions">
