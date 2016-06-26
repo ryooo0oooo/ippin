@@ -1,1 +1,8 @@
-<p>投稿した内容を表示</p>
+<div class="contents row">
+  <% @posts.each do |post|%>
+  <div class="content_post">
+    <%= image_tag post.image %>
+  </div>
+  <%= simple_format(post.description) %>
+  <% end %>
+</div>
