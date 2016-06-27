@@ -1,8 +1,16 @@
 <div class="contents row">
   <% @posts.each do |post|%>
-  <div class="content_post">
-    <%= image_tag post.image %>
-  </div>
-  <%= simple_format(post.description) %>
+    <div class="content_post">
+      <%= image_tag post.image %>
+        <% if user_signed_in? && current_user.id == post.user_id  %>
+        <%= simple_format(post.description) %>
+          <li>
+            <%= link_to '編集',"/posts/#{post.id}/edit", method: :get %>
+          </li>
+          <li>
+            <%= link_to '削除',"/posts/#{post.id}", method: :delete %>
+          </li>
+      </div>
+    <% end %>
   <% end %>
 </div>

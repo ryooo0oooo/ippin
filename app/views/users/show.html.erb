@@ -1,1 +1,19 @@
-<p> userコントローラー,showアクション</p>
+<div class="user_page">
+  <header class="user_page-header">
+    <div class="yjContainer">
+      <a href="">
+      <div class="user_image"><%= image_tag current_user.icon %></div>
+        <h2><%= current_user.account_id %> <span>さんのマイページ</span></h2>
+      </a>
+    </div>
+  </header>
+<div class="contents row">
+  <% current_user.posts.each do |post|%>
+  <div class="content_post">
+    <%= image_tag post.image %>
+  </div>
+  <%= simple_format(post.description) %>
+  <% end %>
+</div>
+    </div>
+  </div>

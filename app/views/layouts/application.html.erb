@@ -45,6 +45,7 @@
          <% if user_signed_in? %>
          <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "ログアウト", destroy_user_session_path,method: :delete %></li>
+        <a href="/users/<%= current_user.id %>">マイページ</a>
         <a href="/posts/new">投稿する</a>
       </ul>
 
