@@ -1,1 +1,14 @@
-<p>投稿フォーム</p>
+<!-- 投稿フォーム -->
+
+<%= form_for(@post) do |f| %>
+<div>
+<p>■写真選んでね</p>
+<%= f.file_field :image %>
+</div>
+
+
+<div>
+<%= f.text_area :description,placeholder: 'キャプションを書く', :size =>"20×10" %>
+</div>
+
+<% end %>
