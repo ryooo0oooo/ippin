@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160626030058) do
     t.text     "image",       limit: 65535
     t.text     "description", limit: 65535
     t.integer  "shop_id",     limit: 4
-    t.integer  "account_id",  limit: 4
+    t.integer  "user_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end

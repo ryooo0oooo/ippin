@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text :image
       t.text :description
       t.integer :shop_id
-      t.integer :account_id
+      t.integer :user_id
       t.timestamps
     end
   end
