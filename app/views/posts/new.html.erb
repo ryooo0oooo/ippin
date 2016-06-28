@@ -1,6 +1,6 @@
 
- <%= form_for(@post,url:'/posts/',method: :post) do |f| %>
-   <div>
+ <%= form_for(@post) do |f| %>
+  <div>
     <p>■写真選んでね</p>
     <%= f.file_field :image %>
   </div>

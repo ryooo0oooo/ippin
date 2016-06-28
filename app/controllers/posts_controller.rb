@@ -8,9 +8,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(create_parmas)
-    redirect_to action: :index
-  end
+ @post = current_user.posts.new(create_params)
+ @post.save
+end
 
   def destroy
     post =Post.find(params[:id])
@@ -22,9 +22,14 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-private
-def create_params
-  params.require(:post).permit(:image, :descripition).merge(user_id: current_user.id)
+  def update
+    post = Post.find(params[:id])
+    if post.user_id == current_user.id
+      post.update(post_params)
+  end
+  private
+    def create_params
+      params.require(:post).permit(:image, :description).merge(user_id: current_user.id)
+  end
 end
-
 end
