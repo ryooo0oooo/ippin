@@ -8,9 +8,13 @@ class PostsController < ApplicationController
   end
 
   def create
- @post = current_user.posts.new(create_params)
- @post.save
-end
+    @post = current_user.posts.build(create_params)
+    if @post.save
+      redirect_to posts_path
+    else
+      render 'new'
+    end
+  end
 
   def destroy
     post =Post.find(params[:id])
@@ -26,10 +30,10 @@ end
     post = Post.find(params[:id])
     if post.user_id == current_user.id
       post.update(post_params)
+    end
   end
   private
     def create_params
       params.require(:post).permit(:image, :description).merge(user_id: current_user.id)
-  end
-end
+    end
 end
