@@ -27,6 +27,11 @@ end
     if post.user_id == current_user.id
       post.update(post_params)
   end
+
+    def show
+     @post = Post.find(params[:id])
+    end
+
   private
     def create_params
       params.require(:post).permit(:image, :description).merge(user_id: current_user.id)

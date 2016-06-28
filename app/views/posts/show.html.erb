@@ -1,0 +1,12 @@
+<div class="contents row">
+  <div class="content_post">
+    <% if user_signed_in? && current_user.id == @post.user_id  %>
+          <li>
+            <%= link_to '投稿を編集',"/posts/#{post.id}/edit", method: :get %>
+          </li>
+          <li>
+            <%= link_to '投稿を削除',"/posts/#{post.id}", method: :delete %>
+          </li>
+  </div>
+    <% end %>
+</div>
